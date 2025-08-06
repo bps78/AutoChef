@@ -1,5 +1,6 @@
 from ultralytics import YOLO
 import torch
+import os
 
 
 def main():
@@ -9,8 +10,10 @@ def main():
     print(torch.__version__)
     print(torch.version.cuda)
 
+
+    os.environ["YOLO_SAVE_DIR"] = "C:/Users/bps78/Documents/GitHub/AutoDJ/runs/train"
     model = YOLO("yolov8n.pt")
-    model.train(data="Fridge detection.v1i.yolov8/data.yaml", epochs=50, imgsz=640)
+    model.train(data="fridgeDataV2/data.yaml", epochs=60, imgsz=640, save_dir="C:/Users/bps78/Documents/GitHub/AutoDJ/runs/train")
 
 if __name__ == "__main__":
     main()
