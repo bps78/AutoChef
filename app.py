@@ -3,12 +3,17 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 import requests
+import torch
+from ultralytics.nn.tasks import DetectionModel
+
+# Allow this class to be unpickled
+torch.serialization.add_safe_globals([DetectionModel])
 
 # Load environment variables
 api_key = st.secrets["SPOONACULAR_API_KEY"]
 
 # Load your model
-model = YOLO('best_v2.pt')
+model = YOLO('best_v2.pt', weights_only=True)
 
 st.title("Fridge Ingredient Detector 🍽️")
 st.write("Upload a picture of your fridge (or use your camera) to get recipe ideas!")
