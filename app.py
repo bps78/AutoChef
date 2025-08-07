@@ -3,11 +3,8 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 import requests
-import os
-from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
 api_key = st.secrets("SPOONACULAR_API_KEY")
 
 # Load your model
