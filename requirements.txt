@@ -3,4 +3,3 @@ ultralytics==8.0.35
 opencv-python-headless
 requests==2.31.0
 torch
-ultralytics.nn.tasks
