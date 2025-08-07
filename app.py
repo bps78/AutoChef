@@ -5,7 +5,7 @@ from ultralytics import YOLO
 import requests
 
 # Load environment variables
-api_key = st.secrets("SPOONACULAR_API_KEY")
+api_key = st.secrets["SPOONACULAR_API_KEY"]
 
 # Load your model
 model = YOLO('best_v2.pt')
