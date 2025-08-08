@@ -85,12 +85,15 @@ if img is not None:
         if response.status_code == 200:
             data = response.json()
             st.subheader("Recommended Recipes 🍳")
-            for recipe in data:
-                st.markdown(f"### {recipe['title']}")
-                st.image(recipe['image'], width=300)
-                st.markdown(f"**Used Ingredients**: {', '.join([i['name'] for i in recipe['usedIngredients']])}")
-                st.markdown(f"**Missing Ingredients**: {', '.join([i['name'] for i in recipe['missedIngredients']])}")
-                st.markdown("---")
+
+            # Slider to pick a recipe
+            recipe_index = st.slider("Select a recipe", 0, len(data) - 1, 0)
+
+            recipe = data[recipe_index]
+            st.image(recipe['image'], width=300)
+            st.markdown(f"### {recipe['title']}")
+            st.markdown(f"**Used Ingredients**: {', '.join([i['name'] for i in recipe['usedIngredients']])}")
+            st.markdown(f"**Missing Ingredients**: {', '.join([i['name'] for i in recipe['missedIngredients']])}")
         else:
             st.error("Failed to fetch recipes. Check your API key and usage quota.")
     elif not api_key:
