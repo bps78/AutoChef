@@ -13,7 +13,7 @@ torch.serialization.add_safe_globals([DetectionModel])
 api_key = st.secrets["SPOONACULAR_API_KEY"]
 
 # Load your model
-model = YOLO('best_v2_8.0.35.pt')
+model = YOLO('best_v2.pt')
 
 st.title("Fridge Ingredient Detector 🍽️")
 st.write("Upload a picture of your fridge (or use your camera) to get recipe ideas!")
