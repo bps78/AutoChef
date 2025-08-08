@@ -86,14 +86,28 @@ if img is not None:
             data = response.json()
             st.subheader("Recommended Recipes 🍳")
 
-            # Slider to pick a recipe
-            recipe_index = st.slider("Select a recipe", 0, len(data) - 1, 0)
+            # Initialize index in session state
+            if "recipe_index" not in st.session_state:
+                st.session_state.recipe_index = 0
 
-            recipe = data[recipe_index]
+            # Navigation buttons
+            col1, col2, col3 = st.columns([1, 2, 1])
+            with col1:
+                if st.button("⬅️ Previous"):
+                    st.session_state.recipe_index = (st.session_state.recipe_index - 1) % len(data)
+            with col3:
+                if st.button("Next ➡️"):
+                    st.session_state.recipe_index = (st.session_state.recipe_index + 1) % len(data)
+
+            # Current recipe
+            recipe = data[st.session_state.recipe_index]
             st.image(recipe['image'], width=300)
             st.markdown(f"### {recipe['title']}")
             st.markdown(f"**Used Ingredients**: {', '.join([i['name'] for i in recipe['usedIngredients']])}")
             st.markdown(f"**Missing Ingredients**: {', '.join([i['name'] for i in recipe['missedIngredients']])}")
+
+            # Optional: Show position indicator
+            st.caption(f"Recipe {st.session_state.recipe_index + 1} of {len(data)}")
         else:
             st.error("Failed to fetch recipes. Check your API key and usage quota.")
     elif not api_key:
