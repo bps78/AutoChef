@@ -10,4 +10,4 @@ Have you ever opened the fridge and wondered what you could possibly make with w
 * 🥘 Spoonacular API – for generating recipe recommendations based on detected ingredients
 
 
-**[Try out the web app here!](https://autochef.streamlit.app/)**
+▶️ **[Try out the web app here!](https://autochef.streamlit.app/)**
