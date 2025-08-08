@@ -3,6 +3,11 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 import requests
+import torch
+from ultralytics.nn.tasks import DetectionModel
+
+# Allow this class to be unpickled
+torch.serialization.add_safe_globals([DetectionModel])
 
 # Load environment variables
 api_key = st.secrets["SPOONACULAR_API_KEY"]
