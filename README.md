@@ -11,3 +11,6 @@ Have you ever opened the fridge and wondered what you could possibly make with w
 
 
 ▶️ **[Try out the web app here!](https://autochef.streamlit.app/)**
+
+## Demo
+![til](https://github.com/bps78/AutoChef/blob/main/AutoChefDemo-ezgif.com-video-to-gif-converter.gif?raw=true)
