@@ -6,8 +6,6 @@ import requests
 import torch
 from ultralytics.nn.tasks import DetectionModel
 
-st.set_option("server.fileWatcherType", "none") # Disable file watcher to prevent issues with large models
-
 # Allow this class to be unpickled
 torch.serialization.add_safe_globals([DetectionModel])
 
